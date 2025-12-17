@@ -74,7 +74,6 @@ const createWebApp = async (vision) => {
 export default function CustomDevelopmentPage() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [typedCode, setTypedCode] = useState('')
-  const [currentLine, setCurrentLine] = useState(0)
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -86,7 +85,6 @@ export default function CustomDevelopmentPage() {
   // Typing animation for code
   useEffect(() => {
     const lines = codeSnippet.split('\n')
-    let currentIndex = 0
     let lineIndex = 0
     let charIndex = 0
 
@@ -99,7 +97,6 @@ export default function CustomDevelopmentPage() {
           setTypedCode(prev => prev + '\n')
           lineIndex++
           charIndex = 0
-          setCurrentLine(lineIndex)
         }
       }
     }
@@ -119,7 +116,7 @@ export default function CustomDevelopmentPage() {
         <motion.div
           animate={{ opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 4, repeat: Infinity }}
-          className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full bg-[var(--color-accent-cyan)]/10 blur-3xl"
+          className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full bg-cyan-500/10 blur-3xl"
         />
 
         <motion.div style={{ y }} className="relative z-10 max-w-7xl mx-auto px-6 py-32">
@@ -130,20 +127,20 @@ export default function CustomDevelopmentPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--color-accent-cyan)]/30 bg-[var(--color-accent-cyan)]/5 mb-8">
-                <span className="w-2 h-2 rounded-full bg-[var(--color-accent-cyan)] animate-pulse" />
-                <span className="text-[var(--color-accent-cyan)] text-sm font-medium">Custom Development</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-500/5 mb-8">
+                <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
+                <span className="text-cyan-400 text-sm font-medium">Custom Development</span>
               </div>
 
               <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-                <span className="text-[var(--color-accent-cyan)]">&lt;</span>
+                <span className="text-cyan-400">&lt;</span>
                 Code
-                <span className="text-[var(--color-accent-cyan)]">/&gt;</span>
+                <span className="text-cyan-400">/&gt;</span>
                 <br />
-                <span className="text-[var(--color-silver)]">That Scales</span>
+                <span className="text-gray-500">That Scales</span>
               </h1>
 
-              <p className="text-lg text-[var(--color-silver)] leading-relaxed mb-8 max-w-lg">
+              <p className="text-lg text-gray-400 leading-relaxed mb-8 max-w-lg">
                 Architecting high-performance web applications with clean code, scalable
                 infrastructure, and user-centric design. From concept to deployment, every
                 line of code is crafted with purpose.
@@ -154,7 +151,7 @@ export default function CustomDevelopmentPage() {
                   href="#projects"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-6 py-3 rounded-lg bg-[var(--color-accent-cyan)] text-[var(--color-midnight)] font-semibold"
+                  className="px-6 py-3 rounded-lg bg-cyan-500 text-gray-900 font-semibold"
                 >
                   View Projects
                 </motion.a>
@@ -162,7 +159,7 @@ export default function CustomDevelopmentPage() {
                   href="#contact"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-6 py-3 rounded-lg border border-[var(--color-accent-cyan)]/30 text-[var(--color-accent-cyan)] font-semibold hover:bg-[var(--color-accent-cyan)]/10"
+                  className="px-6 py-3 rounded-lg border border-cyan-500/30 text-cyan-400 font-semibold hover:bg-cyan-500/10"
                 >
                   Start a Project
                 </motion.a>
@@ -176,20 +173,20 @@ export default function CustomDevelopmentPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <div className="glass rounded-2xl overflow-hidden border border-[var(--color-accent-cyan)]/20">
+              <div className="glass rounded-2xl overflow-hidden border border-cyan-500/20">
                 {/* Terminal Header */}
-                <div className="flex items-center gap-2 px-4 py-3 bg-[var(--color-slate-dark)] border-b border-white/5">
+                <div className="flex items-center gap-2 px-4 py-3 bg-[#1a1a24] border-b border-white/5">
                   <div className="flex gap-2">
-                    <span className="w-3 h-3 rounded-full bg-[var(--color-accent-rose)]" />
-                    <span className="w-3 h-3 rounded-full bg-[var(--color-accent-amber)]" />
-                    <span className="w-3 h-3 rounded-full bg-[var(--color-accent-emerald)]" />
+                    <span className="w-3 h-3 rounded-full bg-rose-500" />
+                    <span className="w-3 h-3 rounded-full bg-amber-500" />
+                    <span className="w-3 h-3 rounded-full bg-emerald-500" />
                   </div>
-                  <span className="text-sm text-[var(--color-silver)] ml-4 font-mono">app.tsx</span>
+                  <span className="text-sm text-gray-400 ml-4 font-mono">app.tsx</span>
                 </div>
 
                 {/* Terminal Content */}
                 <div className="p-6 font-mono text-sm leading-relaxed">
-                  <pre className="text-[var(--color-accent-cyan)]">
+                  <pre className="text-cyan-400">
                     {typedCode}
                     <span className="animate-pulse">|</span>
                   </pre>
@@ -200,24 +197,24 @@ export default function CustomDevelopmentPage() {
               <motion.div
                 animate={{ y: [-10, 10, -10] }}
                 transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -top-4 -right-4 px-4 py-2 rounded-lg glass border border-[var(--color-accent-cyan)]/20"
+                className="absolute -top-4 -right-4 px-4 py-2 rounded-lg glass border border-cyan-500/20"
               >
-                <span className="text-[var(--color-accent-cyan)] font-mono text-sm">npm run build ✓</span>
+                <span className="text-cyan-400 font-mono text-sm">npm run build ✓</span>
               </motion.div>
 
               <motion.div
                 animate={{ y: [10, -10, 10] }}
                 transition={{ duration: 5, repeat: Infinity }}
-                className="absolute -bottom-4 -left-4 px-4 py-2 rounded-lg glass border border-[var(--color-accent-emerald)]/20"
+                className="absolute -bottom-4 -left-4 px-4 py-2 rounded-lg glass border border-emerald-500/20"
               >
-                <span className="text-[var(--color-accent-emerald)] font-mono text-sm">Tests: 100% passed</span>
+                <span className="text-emerald-400 font-mono text-sm">Tests: 100% passed</span>
               </motion.div>
             </motion.div>
           </div>
         </motion.div>
       </section>
 
-      {/* Tech Stack Section - Horizontal Scroll */}
+      {/* Tech Stack Section */}
       <section className="py-24 overflow-hidden border-y border-white/5">
         <div className="max-w-7xl mx-auto px-6 mb-12">
           <motion.h2
@@ -240,12 +237,12 @@ export default function CustomDevelopmentPage() {
               transition={{ delay: catIndex * 0.1 }}
               className="glass rounded-2xl p-6"
             >
-              <h3 className="font-display font-semibold text-[var(--color-accent-cyan)] mb-4">{category.name}</h3>
+              <h3 className="font-display font-semibold text-cyan-400 mb-4">{category.name}</h3>
               <div className="flex flex-wrap gap-2">
                 {category.items.map((item) => (
                   <span
                     key={item}
-                    className="px-3 py-1.5 rounded-lg bg-[var(--color-slate-dark)] text-sm text-[var(--color-silver)] border border-white/5 hover:border-[var(--color-accent-cyan)]/50 transition-colors"
+                    className="px-3 py-1.5 rounded-lg bg-[#1a1a24] text-sm text-gray-400 border border-white/5 hover:border-cyan-500/50 transition-colors"
                   >
                     {item}
                   </span>
@@ -265,7 +262,7 @@ export default function CustomDevelopmentPage() {
             viewport={{ once: true }}
             className="mb-16"
           >
-            <span className="text-[var(--color-accent-cyan)] font-mono text-sm">// Featured Work</span>
+            <span className="text-cyan-400 font-mono text-sm">// Featured Work</span>
             <h2 className="font-display text-4xl md:text-5xl font-bold mt-2">
               Custom Web Applications
             </h2>
@@ -283,10 +280,10 @@ export default function CustomDevelopmentPage() {
                 <motion.div
                   whileHover={{ scale: 1.01 }}
                   className={`glass rounded-3xl overflow-hidden border-l-4 ${
-                    project.color === 'cyan' ? 'border-l-[var(--color-accent-cyan)]' :
-                    project.color === 'emerald' ? 'border-l-[var(--color-accent-emerald)]' :
-                    project.color === 'purple' ? 'border-l-[var(--color-accent-purple)]' :
-                    'border-l-[var(--color-accent-amber)]'
+                    project.color === 'cyan' ? 'border-l-cyan-500' :
+                    project.color === 'emerald' ? 'border-l-emerald-500' :
+                    project.color === 'purple' ? 'border-l-purple-500' :
+                    'border-l-amber-500'
                   }`}
                 >
                   <div className="p-8 md:p-10">
@@ -295,7 +292,7 @@ export default function CustomDevelopmentPage() {
                         <h3 className="font-display text-2xl md:text-3xl font-bold mb-4">
                           {project.title}
                         </h3>
-                        <p className="text-[var(--color-silver)] leading-relaxed mb-6 max-w-2xl">
+                        <p className="text-gray-400 leading-relaxed mb-6 max-w-2xl">
                           {project.description}
                         </p>
                         <div className="flex flex-wrap gap-2">
@@ -303,10 +300,10 @@ export default function CustomDevelopmentPage() {
                             <span
                               key={tech}
                               className={`px-3 py-1 rounded-full text-xs font-medium ${
-                                project.color === 'cyan' ? 'bg-[var(--color-accent-cyan)]/10 text-[var(--color-accent-cyan)]' :
-                                project.color === 'emerald' ? 'bg-[var(--color-accent-emerald)]/10 text-[var(--color-accent-emerald)]' :
-                                project.color === 'purple' ? 'bg-[var(--color-accent-purple)]/10 text-[var(--color-accent-purple)]' :
-                                'bg-[var(--color-accent-amber)]/10 text-[var(--color-accent-amber)]'
+                                project.color === 'cyan' ? 'bg-cyan-500/10 text-cyan-400' :
+                                project.color === 'emerald' ? 'bg-emerald-500/10 text-emerald-400' :
+                                project.color === 'purple' ? 'bg-purple-500/10 text-purple-400' :
+                                'bg-amber-500/10 text-amber-400'
                               }`}
                             >
                               {tech}
@@ -320,14 +317,14 @@ export default function CustomDevelopmentPage() {
                         {Object.entries(project.metrics).map(([key, value]) => (
                           <div key={key}>
                             <span className={`font-display text-2xl font-bold ${
-                              project.color === 'cyan' ? 'text-[var(--color-accent-cyan)]' :
-                              project.color === 'emerald' ? 'text-[var(--color-accent-emerald)]' :
-                              project.color === 'purple' ? 'text-[var(--color-accent-purple)]' :
-                              'text-[var(--color-accent-amber)]'
+                              project.color === 'cyan' ? 'text-cyan-400' :
+                              project.color === 'emerald' ? 'text-emerald-400' :
+                              project.color === 'purple' ? 'text-purple-400' :
+                              'text-amber-400'
                             }`}>
                               {value}
                             </span>
-                            <p className="text-[var(--color-slate-light)] text-sm capitalize">{key}</p>
+                            <p className="text-gray-600 text-sm capitalize">{key}</p>
                           </div>
                         ))}
                       </div>
@@ -341,7 +338,7 @@ export default function CustomDevelopmentPage() {
       </section>
 
       {/* Process Section */}
-      <section className="py-32 bg-[var(--color-charcoal)]/30">
+      <section className="py-32 bg-[#111118]/50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -349,7 +346,7 @@ export default function CustomDevelopmentPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="text-[var(--color-accent-cyan)] font-mono text-sm">// Development Lifecycle</span>
+            <span className="text-cyan-400 font-mono text-sm">// Development Lifecycle</span>
             <h2 className="font-display text-4xl md:text-5xl font-bold mt-2">
               How I Build
             </h2>
@@ -357,7 +354,7 @@ export default function CustomDevelopmentPage() {
 
           <div className="relative">
             {/* Connection Line */}
-            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[var(--color-accent-cyan)]/30 to-transparent" />
+            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
@@ -375,16 +372,16 @@ export default function CustomDevelopmentPage() {
                   className="relative"
                 >
                   <div className="glass rounded-2xl p-6 text-center hover-lift">
-                    <div className="w-16 h-16 rounded-xl bg-[var(--color-accent-cyan)]/10 flex items-center justify-center mx-auto mb-4 text-3xl">
+                    <div className="w-16 h-16 rounded-xl bg-cyan-500/10 flex items-center justify-center mx-auto mb-4 text-3xl">
                       {step.icon}
                     </div>
                     <h3 className="font-display text-xl font-bold mb-2">{step.title}</h3>
-                    <p className="text-[var(--color-silver)] text-sm">{step.desc}</p>
+                    <p className="text-gray-400 text-sm">{step.desc}</p>
                   </div>
 
                   {/* Step Number */}
-                  <div className="hidden lg:flex absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[var(--color-accent-cyan)] items-center justify-center">
-                    <span className="text-sm font-bold text-[var(--color-midnight)]">{index + 1}</span>
+                  <div className="hidden lg:flex absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-cyan-500 items-center justify-center">
+                    <span className="text-sm font-bold text-gray-900">{index + 1}</span>
                   </div>
                 </motion.div>
               ))}
@@ -404,16 +401,16 @@ export default function CustomDevelopmentPage() {
             <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
               Ready to Build Your
               <br />
-              <span className="text-[var(--color-accent-cyan)]">Next Big Thing?</span>
+              <span className="text-cyan-400">Next Big Thing?</span>
             </h2>
-            <p className="text-[var(--color-silver)] text-lg mb-8 max-w-2xl mx-auto">
+            <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
               Let&apos;s discuss your project requirements and create something extraordinary together.
             </p>
             <motion.a
               href="mailto:hello@helmi.dev"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex px-8 py-4 rounded-lg bg-[var(--color-accent-cyan)] text-[var(--color-midnight)] font-semibold"
+              className="inline-flex px-8 py-4 rounded-lg bg-cyan-500 text-gray-900 font-semibold"
             >
               Start a Conversation
             </motion.a>
@@ -427,9 +424,9 @@ export default function CustomDevelopmentPage() {
           <motion.div
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="w-12 h-12 rounded-full glass flex items-center justify-center border border-[var(--color-accent-cyan)]/30"
+            className="w-12 h-12 rounded-full glass flex items-center justify-center border border-cyan-500/30"
           >
-            <svg className="w-5 h-5 text-[var(--color-accent-cyan)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
             </svg>
           </motion.div>

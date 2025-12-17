@@ -129,12 +129,12 @@ function AnimatedLineChart() {
       <svg viewBox="0 0 300 100" className="w-full h-full">
         <defs>
           <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="var(--color-accent-amber)" />
-            <stop offset="100%" stopColor="var(--color-accent-rose)" />
+            <stop offset="0%" stopColor="#f59e0b" />
+            <stop offset="100%" stopColor="#f43f5e" />
           </linearGradient>
           <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="var(--color-accent-amber)" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="var(--color-accent-amber)" stopOpacity="0" />
+            <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="#f59e0b" stopOpacity="0" />
           </linearGradient>
         </defs>
 
@@ -166,7 +166,7 @@ function AnimatedLineChart() {
             cx={point.x}
             cy={point.y}
             r="4"
-            fill="var(--color-accent-amber)"
+            fill="#f59e0b"
             initial={{ scale: 0 }}
             animate={{ scale: isVisible ? 1 : 0 }}
             transition={{ delay: index * 0.1 + 1, duration: 0.3 }}
@@ -200,10 +200,10 @@ function AnimatedDonutChart() {
   }, [])
 
   const segments = [
-    { percent: 35, color: 'var(--color-accent-amber)' },
-    { percent: 25, color: 'var(--color-accent-cyan)' },
-    { percent: 20, color: 'var(--color-accent-purple)' },
-    { percent: 20, color: 'var(--color-accent-emerald)' }
+    { percent: 35, color: '#f59e0b' },
+    { percent: 25, color: '#00d4ff' },
+    { percent: 20, color: '#a855f7' },
+    { percent: 20, color: '#10b981' }
   ]
 
   let currentOffset = 0
@@ -255,7 +255,7 @@ export default function DataVisualizationPage() {
         {/* Animated Background Grid */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 grid-pattern opacity-30" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-accent-amber)]/5 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-amber-500/5 via-transparent to-transparent" />
         </div>
 
         {/* Floating Data Elements */}
@@ -271,7 +271,7 @@ export default function DataVisualizationPage() {
               key={i}
               animate={{ opacity: [0.2, 0.5, 0.2], y: [-10, 10, -10] }}
               transition={{ duration: 4, delay: item.delay, repeat: Infinity }}
-              className="absolute font-mono text-[var(--color-accent-amber)]/30 text-4xl font-bold"
+              className="absolute font-mono text-amber-500/30 text-4xl font-bold"
               style={{ top: item.top, left: item.left, right: item.right, bottom: item.bottom }}
             >
               {item.value}
@@ -287,34 +287,34 @@ export default function DataVisualizationPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-[var(--color-accent-amber)]/20 mb-8">
-                <span className="w-2 h-2 rounded-full bg-[var(--color-accent-amber)] animate-pulse" />
-                <span className="text-[var(--color-accent-amber)] text-sm font-medium">Data & Analytics</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-amber-500/20 mb-8">
+                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                <span className="text-amber-400 text-sm font-medium">Data & Analytics</span>
               </div>
 
               <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
                 Turn Data Into
                 <br />
-                <span className="text-[var(--color-accent-amber)]">Visual Stories</span>
+                <span className="text-amber-400">Visual Stories</span>
               </h1>
 
-              <p className="text-lg text-[var(--color-silver)] leading-relaxed mb-8 max-w-lg">
+              <p className="text-lg text-gray-400 leading-relaxed mb-8 max-w-lg">
                 Transforming complex datasets into intuitive, interactive visualizations
                 that reveal insights and drive data-informed decisions.
               </p>
 
               <div className="flex flex-wrap gap-4 mb-8">
                 <div className="glass rounded-xl p-4 text-center min-w-[100px]">
-                  <span className="block font-display text-3xl font-bold text-[var(--color-accent-amber)]">30+</span>
-                  <span className="text-xs text-[var(--color-silver)]">Dashboards</span>
+                  <span className="block font-display text-3xl font-bold text-amber-400">30+</span>
+                  <span className="text-xs text-gray-400">Dashboards</span>
                 </div>
                 <div className="glass rounded-xl p-4 text-center min-w-[100px]">
-                  <span className="block font-display text-3xl font-bold text-[var(--color-accent-amber)]">1B+</span>
-                  <span className="text-xs text-[var(--color-silver)]">Data Points</span>
+                  <span className="block font-display text-3xl font-bold text-amber-400">1B+</span>
+                  <span className="text-xs text-gray-400">Data Points</span>
                 </div>
                 <div className="glass rounded-xl p-4 text-center min-w-[100px]">
-                  <span className="block font-display text-3xl font-bold text-[var(--color-accent-amber)]">98%</span>
-                  <span className="text-xs text-[var(--color-silver)]">Accuracy</span>
+                  <span className="block font-display text-3xl font-bold text-amber-400">98%</span>
+                  <span className="text-xs text-gray-400">Accuracy</span>
                 </div>
               </div>
 
@@ -322,7 +322,7 @@ export default function DataVisualizationPage() {
                 href="#services"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex px-8 py-4 rounded-xl bg-[var(--color-accent-amber)] text-[var(--color-midnight)] font-semibold"
+                className="inline-flex px-8 py-4 rounded-xl bg-amber-500 text-[#0a0a0f] font-semibold"
               >
                 Explore Services
               </motion.a>
@@ -336,10 +336,10 @@ export default function DataVisualizationPage() {
               className="relative hidden lg:block"
             >
               {/* Main Chart Card */}
-              <div className="glass rounded-3xl p-6 border border-[var(--color-accent-amber)]/20">
+              <div className="glass rounded-3xl p-6 border border-amber-500/20">
                 <div className="flex items-center justify-between mb-6">
                   <h3 className="font-semibold">Revenue Analytics</h3>
-                  <span className="text-[var(--color-accent-amber)] text-sm">+24.5%</span>
+                  <span className="text-amber-400 text-sm">+24.5%</span>
                 </div>
                 <AnimatedLineChart />
 
@@ -352,9 +352,9 @@ export default function DataVisualizationPage() {
                           initial={{ height: 0 }}
                           animate={{ height: `${item.value}%` }}
                           transition={{ delay: index * 0.1, duration: 0.5 }}
-                          className="w-full rounded-t-lg bg-gradient-to-t from-[var(--color-accent-amber)] to-[var(--color-accent-rose)]"
+                          className="w-full rounded-t-lg bg-gradient-to-t from-amber-500 to-rose-500"
                         />
-                        <span className="text-xs text-[var(--color-slate-light)]">{item.label}</span>
+                        <span className="text-xs text-[#3a3a4a]">{item.label}</span>
                       </div>
                     ))}
                   </div>
@@ -365,7 +365,7 @@ export default function DataVisualizationPage() {
               <motion.div
                 animate={{ y: [-10, 10, -10] }}
                 transition={{ duration: 5, repeat: Infinity }}
-                className="absolute -top-4 -right-4 glass rounded-xl p-4 border border-[var(--color-accent-amber)]/20"
+                className="absolute -top-4 -right-4 glass rounded-xl p-4 border border-amber-500/20"
               >
                 <AnimatedDonutChart />
               </motion.div>
@@ -373,15 +373,15 @@ export default function DataVisualizationPage() {
               <motion.div
                 animate={{ y: [10, -10, 10] }}
                 transition={{ duration: 6, repeat: Infinity }}
-                className="absolute -bottom-4 -left-4 glass rounded-xl p-4 border border-[var(--color-accent-cyan)]/20"
+                className="absolute -bottom-4 -left-4 glass rounded-xl p-4 border border-cyan-500/20"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-[var(--color-accent-cyan)]/20 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center">
                     <span className="text-lg">📈</span>
                   </div>
                   <div>
-                    <p className="text-xs text-[var(--color-silver)]">Growth Rate</p>
-                    <p className="font-display font-bold text-[var(--color-accent-cyan)]">+156%</p>
+                    <p className="text-xs text-gray-400">Growth Rate</p>
+                    <p className="font-display font-bold text-cyan-400">+156%</p>
                   </div>
                 </div>
               </motion.div>
@@ -391,7 +391,7 @@ export default function DataVisualizationPage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-32 bg-[var(--color-charcoal)]/30" id="services">
+      <section className="py-32 bg-[#111118]/30" id="services">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -399,7 +399,7 @@ export default function DataVisualizationPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="text-[var(--color-accent-amber)] font-mono text-sm tracking-wider uppercase">
+            <span className="text-amber-400 font-mono text-sm tracking-wider uppercase">
               Services
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold mt-2">
@@ -416,15 +416,15 @@ export default function DataVisualizationPage() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -8 }}
-                className="glass rounded-3xl p-8 border border-white/5 hover:border-[var(--color-accent-amber)]/30 transition-all group"
+                className="glass rounded-3xl p-8 border border-white/5 hover:border-amber-500/30 transition-all group"
               >
-                <div className="w-14 h-14 rounded-2xl bg-[var(--color-accent-amber)]/10 flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-6 text-3xl group-hover:scale-110 transition-transform">
                   {service.icon}
                 </div>
-                <h3 className="font-display text-xl font-bold mb-3 group-hover:text-[var(--color-accent-amber)] transition-colors">
+                <h3 className="font-display text-xl font-bold mb-3 group-hover:text-amber-400 transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-[var(--color-silver)] text-sm leading-relaxed">
+                <p className="text-gray-400 text-sm leading-relaxed">
                   {service.description}
                 </p>
               </motion.div>
@@ -442,7 +442,7 @@ export default function DataVisualizationPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="text-[var(--color-accent-amber)] font-mono text-sm tracking-wider uppercase">
+            <span className="text-amber-400 font-mono text-sm tracking-wider uppercase">
               Tech Stack
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold mt-2">
@@ -460,10 +460,10 @@ export default function DataVisualizationPage() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
                 whileHover={{ scale: 1.1, y: -4 }}
-                className="glass px-6 py-3 rounded-2xl border border-white/5 hover:border-[var(--color-accent-amber)]/30 transition-all cursor-default"
+                className="glass px-6 py-3 rounded-2xl border border-white/5 hover:border-amber-500/30 transition-all cursor-default"
               >
                 <span className="font-medium">{tool.name}</span>
-                <span className="ml-2 text-xs text-[var(--color-accent-amber)]">{tool.category}</span>
+                <span className="ml-2 text-xs text-amber-400">{tool.category}</span>
               </motion.div>
             ))}
           </div>
@@ -471,7 +471,7 @@ export default function DataVisualizationPage() {
       </section>
 
       {/* Case Studies */}
-      <section className="py-32 bg-[var(--color-charcoal)]/30">
+      <section className="py-32 bg-[#111118]/30">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -479,7 +479,7 @@ export default function DataVisualizationPage() {
             viewport={{ once: true }}
             className="mb-16"
           >
-            <span className="text-[var(--color-accent-amber)] font-mono text-sm tracking-wider uppercase">
+            <span className="text-amber-400 font-mono text-sm tracking-wider uppercase">
               Case Studies
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold mt-2">
@@ -498,23 +498,23 @@ export default function DataVisualizationPage() {
                 className="group"
               >
                 <div className={`glass rounded-3xl p-8 md:p-10 border-l-4 ${
-                  study.color === 'amber' ? 'border-l-[var(--color-accent-amber)]' :
-                  study.color === 'cyan' ? 'border-l-[var(--color-accent-cyan)]' :
-                  'border-l-[var(--color-accent-emerald)]'
+                  study.color === 'amber' ? 'border-l-amber-500' :
+                  study.color === 'cyan' ? 'border-l-cyan-500' :
+                  'border-l-emerald-500'
                 }`}>
                   <div className="grid lg:grid-cols-3 gap-8 items-center">
                     <div className="lg:col-span-2">
                       <span className={`text-sm font-medium ${
-                        study.color === 'amber' ? 'text-[var(--color-accent-amber)]' :
-                        study.color === 'cyan' ? 'text-[var(--color-accent-cyan)]' :
-                        'text-[var(--color-accent-emerald)]'
+                        study.color === 'amber' ? 'text-amber-400' :
+                        study.color === 'cyan' ? 'text-cyan-400' :
+                        'text-emerald-400'
                       }`}>
                         {study.client}
                       </span>
                       <h3 className="font-display text-2xl md:text-3xl font-bold mt-2 mb-4">
                         {study.title}
                       </h3>
-                      <p className="text-[var(--color-silver)] leading-relaxed">
+                      <p className="text-gray-400 leading-relaxed">
                         {study.description}
                       </p>
                     </div>
@@ -524,13 +524,13 @@ export default function DataVisualizationPage() {
                       {Object.entries(study.metrics).map(([key, value]) => (
                         <div key={key} className="text-center lg:text-right">
                           <span className={`block font-display text-2xl md:text-3xl font-bold ${
-                            study.color === 'amber' ? 'text-[var(--color-accent-amber)]' :
-                            study.color === 'cyan' ? 'text-[var(--color-accent-cyan)]' :
-                            'text-[var(--color-accent-emerald)]'
+                            study.color === 'amber' ? 'text-amber-400' :
+                            study.color === 'cyan' ? 'text-cyan-400' :
+                            'text-emerald-400'
                           }`}>
                             {value}
                           </span>
-                          <span className="text-[var(--color-slate-light)] text-sm capitalize">{key}</span>
+                          <span className="text-[#3a3a4a] text-sm capitalize">{key}</span>
                         </div>
                       ))}
                     </div>
@@ -551,7 +551,7 @@ export default function DataVisualizationPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="text-[var(--color-accent-amber)] font-mono text-sm tracking-wider uppercase">
+            <span className="text-amber-400 font-mono text-sm tracking-wider uppercase">
               Methodology
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold mt-2">
@@ -576,13 +576,13 @@ export default function DataVisualizationPage() {
               >
                 <div className="glass rounded-2xl p-6 text-center hover-lift h-full">
                   <span className="text-4xl mb-4 block">{step.icon}</span>
-                  <span className="text-4xl font-display font-bold text-[var(--color-accent-amber)]/20">{step.num}</span>
+                  <span className="text-4xl font-display font-bold text-amber-500/20">{step.num}</span>
                   <h3 className="font-display text-xl font-bold mt-2 mb-2">{step.title}</h3>
-                  <p className="text-[var(--color-silver)] text-sm">{step.desc}</p>
+                  <p className="text-gray-400 text-sm">{step.desc}</p>
                 </div>
 
                 {index < 3 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gradient-to-r from-[var(--color-accent-amber)]/50 to-transparent" />
+                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gradient-to-r from-amber-500/50 to-transparent" />
                 )}
               </motion.div>
             ))}
@@ -601,9 +601,9 @@ export default function DataVisualizationPage() {
             <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
               Let Your Data
               <br />
-              <span className="text-[var(--color-accent-amber)]">Tell Its Story</span>
+              <span className="text-amber-400">Tell Its Story</span>
             </h2>
-            <p className="text-[var(--color-silver)] text-lg mb-8 max-w-2xl mx-auto">
+            <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
               Ready to unlock the potential hidden in your data? Let&apos;s create
               visualizations that drive decisions and deliver results.
             </p>
@@ -611,7 +611,7 @@ export default function DataVisualizationPage() {
               href="mailto:hello@helmi.dev"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex px-8 py-4 rounded-xl bg-[var(--color-accent-amber)] text-[var(--color-midnight)] font-semibold"
+              className="inline-flex px-8 py-4 rounded-xl bg-amber-500 text-[#0a0a0f] font-semibold"
             >
               Start Visualizing
             </motion.a>
@@ -625,9 +625,9 @@ export default function DataVisualizationPage() {
           <motion.div
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="w-12 h-12 rounded-full glass flex items-center justify-center border border-[var(--color-accent-amber)]/30"
+            className="w-12 h-12 rounded-full glass flex items-center justify-center border border-amber-500/30"
           >
-            <svg className="w-5 h-5 text-[var(--color-accent-amber)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
             </svg>
           </motion.div>
