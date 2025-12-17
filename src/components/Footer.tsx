@@ -20,27 +20,27 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/5">
-      {/* Gradient Glow */}
+    <footer className="relative border-t border-[rgba(255,255,255,0.05)] bg-[#050508]">
+      {/* Gradient Line */}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto px-8 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-3 mb-6">
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center">
-                <span className="font-display font-bold text-xl text-white">H</span>
+                <span className="font-bold text-xl text-white">H</span>
               </div>
-              <span className="font-display font-semibold text-2xl">
+              <span className="font-semibold text-2xl">
                 Helmi<span className="text-cyan-400">.</span>dev
               </span>
             </Link>
-            <p className="text-gray-400 max-w-md mb-6 leading-relaxed">
+            <p className="text-[#8b8b9a] max-w-md mb-8 leading-relaxed">
               Crafting exceptional digital experiences through innovative web development,
               scalable SaaS solutions, and data-driven insights.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-3">
               {footerLinks.social.map((link) => (
                 <motion.a
                   key={link.label}
@@ -48,7 +48,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
-                  className="w-10 h-10 rounded-lg bg-[#1a1a24] flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:bg-[#252532] transition-colors"
+                  className="w-11 h-11 rounded-xl bg-[#12121a] border border-[rgba(255,255,255,0.05)] flex items-center justify-center text-[#8b8b9a] hover:text-cyan-400 hover:border-cyan-500/30 transition-all"
                 >
                   <SocialIcon name={link.label} />
                 </motion.a>
@@ -58,13 +58,13 @@ export default function Footer() {
 
           {/* Expertise */}
           <div>
-            <h4 className="font-display font-semibold text-lg mb-6">Expertise</h4>
-            <ul className="space-y-3">
+            <h4 className="font-semibold text-lg mb-6">Expertise</h4>
+            <ul className="space-y-4">
               {footerLinks.expertise.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors link-underline"
+                    className="text-[#8b8b9a] hover:text-white transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -75,8 +75,8 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-display font-semibold text-lg mb-6">Get in Touch</h4>
-            <ul className="space-y-3 text-gray-400">
+            <h4 className="font-semibold text-lg mb-6">Get in Touch</h4>
+            <ul className="space-y-4 text-[#8b8b9a]">
               <li>
                 <a href="mailto:hello@helmi.dev" className="hover:text-cyan-400 transition-colors">
                   hello@helmi.dev
@@ -89,11 +89,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-gray-400">
+        <div className="pt-8 border-t border-[rgba(255,255,255,0.05)] flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-sm text-[#8b8b9a]">
             © {new Date().getFullYear()} Helmi Aouali. All rights reserved.
           </p>
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-[#5a5a6a]">
             Crafted with passion & precision
           </p>
         </div>
