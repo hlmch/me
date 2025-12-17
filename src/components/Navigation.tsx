@@ -44,12 +44,12 @@ export default function Navigation() {
             <motion.div
               whileHover={{ rotate: 180, scale: 1.1 }}
               transition={{ duration: 0.5 }}
-              className="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-accent-cyan)] to-[var(--color-accent-purple)] flex items-center justify-center"
+              className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center"
             >
               <span className="font-display font-bold text-lg text-white">H</span>
             </motion.div>
             <span className="font-display font-semibold text-xl hidden sm:block">
-              Helmi<span className="text-[var(--color-accent-cyan)]">.</span>dev
+              Helmi<span className="text-cyan-400">.</span>dev
             </span>
           </Link>
 
@@ -63,15 +63,15 @@ export default function Navigation() {
               >
                 <span className={`relative z-10 text-sm font-medium transition-colors ${
                   pathname === link.href
-                    ? 'text-[var(--color-accent-cyan)]'
-                    : 'text-[var(--color-silver)] group-hover:text-[var(--color-cream)]'
+                    ? 'text-cyan-400'
+                    : 'text-gray-400 group-hover:text-white'
                 }`}>
                   {link.label}
                 </span>
                 {pathname === link.href && (
                   <motion.div
                     layoutId="nav-indicator"
-                    className="absolute inset-0 rounded-lg bg-[var(--color-slate-dark)]"
+                    className="absolute inset-0 rounded-lg bg-[#1a1a24]"
                     transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                   />
                 )}
@@ -87,8 +87,8 @@ export default function Navigation() {
               whileTap={{ scale: 0.95 }}
               className="relative px-6 py-2.5 rounded-full font-medium text-sm overflow-hidden group"
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-[var(--color-accent-cyan)] to-[var(--color-accent-purple)]" />
-              <span className="absolute inset-0 bg-gradient-to-r from-[var(--color-accent-purple)] to-[var(--color-accent-cyan)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <span className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500" />
+              <span className="absolute inset-0 bg-gradient-to-r from-purple-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <span className="relative text-white">Let&apos;s Talk</span>
             </motion.a>
           </div>
@@ -105,18 +105,18 @@ export default function Navigation() {
                   rotate: isMobileMenuOpen ? 45 : 0,
                   y: isMobileMenuOpen ? 6 : 0
                 }}
-                className="w-6 h-0.5 bg-[var(--color-cream)] origin-center"
+                className="w-6 h-0.5 bg-white origin-center"
               />
               <motion.span
                 animate={{ opacity: isMobileMenuOpen ? 0 : 1 }}
-                className="w-6 h-0.5 bg-[var(--color-cream)]"
+                className="w-6 h-0.5 bg-white"
               />
               <motion.span
                 animate={{
                   rotate: isMobileMenuOpen ? -45 : 0,
                   y: isMobileMenuOpen ? -6 : 0
                 }}
-                className="w-6 h-0.5 bg-[var(--color-cream)] origin-center"
+                className="w-6 h-0.5 bg-white origin-center"
               />
             </div>
           </button>
@@ -136,7 +136,7 @@ export default function Navigation() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-[var(--color-midnight)]/95 backdrop-blur-lg"
+              className="absolute inset-0 bg-[#0a0a0f]/95 backdrop-blur-lg"
               onClick={() => setIsMobileMenuOpen(false)}
             />
             <motion.div
@@ -144,7 +144,7 @@ export default function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', bounce: 0, duration: 0.5 }}
-              className="absolute right-0 top-0 bottom-0 w-full max-w-sm bg-[var(--color-charcoal)] border-l border-white/5 p-8 pt-24"
+              className="absolute right-0 top-0 bottom-0 w-full max-w-sm bg-[#111118] border-l border-white/5 p-8 pt-24"
             >
               <div className="flex flex-col gap-2">
                 {navLinks.map((link, index) => (
@@ -159,8 +159,8 @@ export default function Navigation() {
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={`block py-3 px-4 rounded-lg text-lg font-medium transition-all ${
                         pathname === link.href
-                          ? 'bg-[var(--color-slate-dark)] text-[var(--color-accent-cyan)]'
-                          : 'text-[var(--color-silver)] hover:text-[var(--color-cream)] hover:bg-[var(--color-slate-dark)]/50'
+                          ? 'bg-[#1a1a24] text-cyan-400'
+                          : 'text-gray-400 hover:text-white hover:bg-[#1a1a24]/50'
                       }`}
                     >
                       {link.label}
@@ -177,7 +177,7 @@ export default function Navigation() {
                 <a
                   href="#contact"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block w-full py-4 rounded-xl bg-gradient-to-r from-[var(--color-accent-cyan)] to-[var(--color-accent-purple)] text-center font-semibold text-white"
+                  className="block w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 text-center font-semibold text-white"
                 >
                   Let&apos;s Talk
                 </a>
